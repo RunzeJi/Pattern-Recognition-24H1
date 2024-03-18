@@ -1,15 +1,19 @@
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import RandomForestClassifier
 import datetime
 import pandas as pd
 import sys
 
+
 # Load the CSV file to check its structure
-file_path = "../train/1.csv"
-data = pd.read_csv(file_path)
+train_path = "../train/1.csv"
+data = pd.read_csv(train_path)
+
+
 
 # Display the first few rows of the dataframe
-data.head()
+print(data.head())
 
 # Convert 'time' column to datetime
 data['time'] = pd.to_datetime(data['time'])
@@ -21,6 +25,8 @@ data['day_of_week'] = data['time'].dt.dayofweek
 # Encoding the 'type' column
 label_encoder = LabelEncoder()
 data['type_encoded'] = label_encoder.fit_transform(data['type'])
+
+print(data['type_encoded'])
 
 # Splitting the dataset into features (X) and target variable (y)
 X = data[['lat', 'lon', '速度', '方向', 'hour', 'day_of_week']]
