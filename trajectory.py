@@ -37,7 +37,7 @@ def get_trace_img(count):
     plt.scatter(file_df['lon'], file_df['lat'], s=1)
     #plt.show()
 
-    plt.savefig(f'{path_dict[platform.system()][cat]}{count}.jpg', dpi=250)
+    plt.savefig(f'{path_dict[platform.system()][cat]}{count}.jpg', dpi=100)
     plt.clf()
 
 for count in tqdm(range(1,18329), 'plotting and saving'):
