@@ -32,10 +32,8 @@ def get_trace_img(count):
     file_df.head()
 
     cat = type_dict[file_df['type'].iloc[0]]
-    #print(cat)
 
     plt.scatter(file_df['lon'], file_df['lat'], s=1)
-    #plt.show()
 
     plt.savefig(f'{path_dict[platform.system()][cat]}{count}.jpg', dpi=100)
     plt.clf()
